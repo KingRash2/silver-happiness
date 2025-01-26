@@ -5,44 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Трезвый водитель</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/@lucide/web@latest"></script>
+    <link href="https://unpkg.com/lucide-icons/dist/umd/lucide-icons.min.js" rel="stylesheet">
+    <script src="https://unpkg.com/lucide-icons" defer></script>
 </head>
 <body>
-    <div class="min-h-screen bg-black text-white">
+    <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <header class="hero">
-            <div class="hero-background">
-                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=2066" 
-                     alt="Luxury car" />
-                <div class="overlay"></div>
-            </div>
-
-            <!-- Navigation -->
-            <nav>
-                <div class="container">
-                    <div class="nav-content">
-                        <div class="logo">
-                            <i data-lucide="car"></i>
-                            <div>
-                                <h1>ТРЕЗВЫЙ ВОДИТЕЛЬ</h1>
-                                <p>Ваша безопасность - наш приоритет</p>
-                            </div>
+            <nav class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <i data-lucide="car"></i>
+                        <div>
+                            <span class="logo-text">ТРЕЗВЫЙ ВОДИТЕЛЬ</span>
+                            <p class="logo-subtitle">Ваша безопасность - наш приоритет</p>
                         </div>
-                        <div class="nav-links">
-                            <a href="#services">Услуги</a>
-                            <a href="#about">О нас</a>
-                            <a href="#prices">Цены</a>
-                            <a href="#contact">Контакты</a>
-                        </div>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#services">Услуги</a>
+                        <a href="#about">О нас</a>
+                        <a href="#prices">Цены</a>
+                        <a href="#contact">Контакты</a>
                     </div>
                 </div>
             </nav>
 
-            <!-- Hero Content -->
             <div class="hero-content container">
                 <div class="hero-text">
-                    <h2>Безопасное возвращение домой <span>в любое время</span></h2>
+                    <h1>Безопасное возвращение домой <span>в любое время</span></h1>
                     <p>Профессиональные водители доставят вас и ваш автомобиль домой безопасно и комфортно 24/7</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Заказать сейчас</a>
@@ -53,7 +43,7 @@
         </header>
 
         <!-- Stats Section -->
-        <section class="stats">
+        <section id="about" class="stats">
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-item">
@@ -100,6 +90,43 @@
             </div>
         </section>
 
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2>Как это работает</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <h3>1. Заказ</h3>
+                        <p>Позвоните нам или оставьте заявку онлайн</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3>2. Назначение</h3>
+                        <p>Мы назначаем ближайшего водителя</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i data-lucide="car"></i>
+                        </div>
+                        <h3>3. Прибытие</h3>
+                        <p>Водитель прибывает в назначенное место</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <h3>4. Доставка</h3>
+                        <p>Безопасно доставляем вас и ваш автомобиль</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Prices Section -->
         <section id="prices" class="prices">
             <div class="container">
@@ -107,58 +134,31 @@
                 <div class="prices-grid">
                     <div class="price-card">
                         <h3>Стандарт</h3>
-                        <div class="price">от 1000 ₽</div>
+                        <p class="price">от 1000 ₽</p>
                         <ul>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>В пределах города</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Подача 15-20 минут</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Опытный водитель</span>
-                            </li>
+                            <li><i data-lucide="check-circle"></i>В пределах города</li>
+                            <li><i data-lucide="check-circle"></i>Подача 15-20 минут</li>
+                            <li><i data-lucide="check-circle"></i>Опытный водитель</li>
                         </ul>
                         <a href="#contact" class="btn btn-primary">Заказать</a>
                     </div>
                     <div class="price-card featured">
                         <h3>Премиум</h3>
-                        <div class="price">от 2000 ₽</div>
+                        <p class="price">от 2000 ₽</p>
                         <ul>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Премиум автомобили</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Подача 10-15 минут</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>VIP обслуживание</span>
-                            </li>
+                            <li><i data-lucide="check-circle"></i>Премиум автомобили</li>
+                            <li><i data-lucide="check-circle"></i>Подача 10-15 минут</li>
+                            <li><i data-lucide="check-circle"></i>VIP обслуживание</li>
                         </ul>
                         <a href="#contact" class="btn btn-dark">Заказать</a>
                     </div>
                     <div class="price-card">
                         <h3>Межгород</h3>
-                        <div class="price">от 3000 ₽</div>
+                        <p class="price">от 3000 ₽</p>
                         <ul>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Любое расстояние</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Фиксированная цена</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check-circle"></i>
-                                <span>Опытный водитель</span>
-                            </li>
+                            <li><i data-lucide="check-circle"></i>Любое расстояние</li>
+                            <li><i data-lucide="check-circle"></i>Фиксированная цена</li>
+                            <li><i data-lucide="check-circle"></i>Опытный водитель</li>
                         </ul>
                         <a href="#contact" class="btn btn-primary">Заказать</a>
                     </div>
@@ -173,26 +173,47 @@
                 <div class="reviews-grid">
                     <div class="review-card">
                         <i data-lucide="quote"></i>
+                        <div class="stars">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                        </div>
                         <p>Отличный сервис! Водитель приехал вовремя, очень вежливый и профессиональный. Доставил меня и машину домой безопасно.</p>
                         <div class="review-author">
-                            <div class="name">Александр</div>
-                            <div class="date">15 февраля 2024</div>
+                            <p class="name">Александр</p>
+                            <p class="date">15 февраля 2024</p>
                         </div>
                     </div>
                     <div class="review-card">
                         <i data-lucide="quote"></i>
+                        <div class="stars">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                        </div>
                         <p>Пользуюсь услугами уже второй раз. Всё на высшем уровне. Операторы вежливые, водители пунктуальные. Рекомендую!</p>
                         <div class="review-author">
-                            <div class="name">Елена</div>
-                            <div class="date">10 февраля 2024</div>
+                            <p class="name">Елена</p>
+                            <p class="date">10 февраля 2024</p>
                         </div>
                     </div>
                     <div class="review-card">
                         <i data-lucide="quote"></i>
+                        <div class="stars">
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                            <i data-lucide="star"></i>
+                        </div>
                         <p>Быстрая подача машины, адекватные цены. Водитель помог загрузить вещи и довез очень аккуратно. Спасибо за сервис!</p>
                         <div class="review-author">
-                            <div class="name">Дмитрий</div>
-                            <div class="date">5 февраля 2024</div>
+                            <p class="name">Дмитрий</p>
+                            <p class="date">5 февраля 2024</p>
                         </div>
                     </div>
                 </div>
@@ -222,12 +243,10 @@
                             </div>
                             <div class="map">
                                 <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.5887638669243!2d37.61844231591581!3d55.75196998055642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!2z0JzQvtGB0LrQvtCy0YHQutC40Lkg0JrRgNC10LzQu9GM!5e0!3m2!1sru!2sru!4v1644831153774!5m2!1sru!2sru" 
+                                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A123&amp;source=constructor" 
                                     width="100%" 
                                     height="300" 
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy">
+                                    frameborder="0">
                                 </iframe>
                             </div>
                         </div>
@@ -260,9 +279,6 @@
     </div>
 
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
