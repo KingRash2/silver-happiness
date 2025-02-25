@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Трезвый водитель</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/lucide-icons/dist/umd/lucide-icons.min.js" rel="stylesheet">
@@ -35,6 +36,52 @@
             flex: 1;
         }
     </style>
+    <style>
+        /* Add this mobile menu styling */
+        .mobile-menu-button {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                z-index: 101;
+            }
+            
+            .mobile-menu-button button {
+                background: transparent;
+                border: none;
+                color: var(--color-primary);
+                cursor: pointer;
+                padding: 0.5rem;
+            }
+            
+            .mobile-menu-button i {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            nav.scrolled .mobile-menu-button {
+                top: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="min-h-screen bg-white">
@@ -54,6 +101,11 @@
                         <a href="#about">О нас</a>
                         <a href="#prices">Цены</a>
                         <a href="#contact">Контакты</a>
+                    </div>
+                    <div class="mobile-menu-button">
+                        <button id="mobileMenuToggle">
+                            <i data-lucide="menu"></i>
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -445,6 +497,33 @@
                 const rotateVal = scrollPos / 1000 * (index % 2 === 0 ? 1 : -1);
                 card.style.transform = `perspective(1000px) rotateY(${rotateVal}deg)`;
             });
+        });
+    </script>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    
+                    // Change icon based on menu state
+                    const icon = this.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.setAttribute('data-lucide', 'x');
+                    } else {
+                        icon.setAttribute('data-lucide', 'menu');
+                    }
+                    
+                    // Make sure Lucide updates the icon
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
+            }
         });
     </script>
 
