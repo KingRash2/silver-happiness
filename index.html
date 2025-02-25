@@ -250,11 +250,12 @@
                                 </iframe>
                             </div>
                         </div>
-                        <form class="contact-form">
-                            <input type="text" placeholder="Ваше имя" required>
-                            <input type="tel" placeholder="Телефон" required>
-                            <textarea placeholder="Сообщение" rows="4"></textarea>
+                        <form class="contact-form" id="orderForm">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                            <input type="tel" name="phone" placeholder="Телефон" required>
+                            <textarea name="message" placeholder="Сообщение" rows="4"></textarea>
                             <button type="submit" class="btn btn-primary">Заказать</button>
+                            <div id="formStatus" style="margin-top: 10px; display: none;"></div>
                         </form>
                     </div>
                 </div>
@@ -312,6 +313,51 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
+
+        // Form submission to Telegram
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formStatus = document.getElementById('formStatus');
+            formStatus.style.display = 'block';
+            formStatus.innerHTML = 'Отправка...';
+            formStatus.style.color = '#333';
+            
+            const name = this.elements['name'].value;
+            const phone = this.elements['phone'].value;
+            const message = this.elements['message'].value;
+            
+            // Telegram bot token and chat ID
+            const telegramBotId = "7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48"; // Replace with your bot token
+            const chatId = "DKZXY"; // Username to send messages to
+            
+            const text = `
+Новый заказ трезвого водителя!
+Имя: ${name}
+Телефон: ${phone}
+Сообщение: ${message}
+`;
+            
+            const url = `https://api.telegram.org/bot${telegramBotId}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=html`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.ok) {
+                        formStatus.innerHTML = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+                        formStatus.style.color = 'green';
+                        this.reset();
+                    } else {
+                        formStatus.innerHTML = 'Произошла ошибка при отправке. Пожалуйста, позвоните нам.';
+                        formStatus.style.color = 'red';
+                    }
+                })
+                .catch(error => {
+                    formStatus.innerHTML = 'Произошла ошибка при отправке. Пожалуйста, позвоните нам.';
+                    formStatus.style.color = 'red';
+                    console.error('Error:', error);
+                });
+        });
     </script>
 </body>
-</html></i></div>
+</html>
