@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Existing head content remains unchanged -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -80,6 +81,20 @@
             nav.scrolled .mobile-menu-button {
                 top: 1rem;
             }
+        }
+    </style>
+    <style>
+        /* Add styling for form status message */
+        #formStatus {
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 500;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -365,7 +380,7 @@
                             <input type="tel" name="phone" placeholder="Телефон" required>
                             <textarea name="message" placeholder="Сообщение" rows="4"></textarea>
                             <button type="submit" class="btn btn-primary">Заказать</button>
-                            <div id="formStatus" style="margin-top: 10px; display: none;"></div>
+                            <div id="formStatus" style="margin-top: 15px; text-align: center; display: none;"></div>
                         </form>
                     </div>
                 </div>
@@ -500,8 +515,8 @@
         });
     </script>
 
+    <!-- Mobile menu functionality -->
     <script>
-        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const navLinks = document.querySelector('.nav-links');
@@ -578,6 +593,108 @@
             myMap.geoObjects.add(oblastCircle); // Bottom (red)
             myMap.geoObjects.add(ckadCircle);   // Middle (yellow)
             myMap.geoObjects.add(mkadCircle);   // Top (green)
+        });
+    </script>
+
+    <script>
+        // Form submission handler for Telegram and WhatsApp notifications
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderForm = document.getElementById('orderForm');
+            const formStatus = document.getElementById('formStatus');
+            
+            if (orderForm) {
+                orderForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading status
+                    formStatus.style.display = 'block';
+                    formStatus.innerHTML = 'Отправка запроса...';
+                    formStatus.style.color = 'var(--color-primary)';
+                    
+                    // Get form data
+                    const name = this.elements['name'].value;
+                    const phone = this.elements['phone'].value;
+                    const message = this.elements['message'].value || 'Без сообщения';
+                    
+                    // Prepare notification text
+                    const notificationText = `
+    🚗 НОВАЯ ЗАЯВКА НА ТРЕЗВОГО ВОДИТЕЛЯ 🚗
+
+    👤 Имя: ${name}
+    📱 Телефон: ${phone}
+    💬 Сообщение: ${message}
+
+    ⏰ Дата и время: ${new Date().toLocaleString('ru-RU')}
+                    `;
+                    
+                    // Send to Telegram
+                    sendTelegramNotification(notificationText)
+                        .then(telegramResult => {
+                            console.log('Telegram notification sent', telegramResult);
+                            
+                            // Open WhatsApp with pre-filled message
+                            openWhatsApp(notificationText);
+                            
+                            // Show success message
+                            formStatus.innerHTML = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+                            formStatus.style.color = '#4CAF50';
+                            
+                            // Reset form
+                            orderForm.reset();
+                        })
+                        .catch(error => {
+                            console.error('Error sending notification:', error);
+                            
+                            // Even if Telegram fails, still try WhatsApp
+                            openWhatsApp(notificationText);
+                            
+                            formStatus.innerHTML = 'Заявка отправлена в WhatsApp. Мы свяжемся с вами в ближайшее время.';
+                            formStatus.style.color = '#4CAF50';
+                            
+                            // Reset form
+                            orderForm.reset();
+                        });
+                });
+            }
+            
+            // Function to send Telegram notification
+            function sendTelegramNotification(text) {
+                // Replace with your bot token and chat ID
+                const botToken = '7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48'; // Замените на ваш токен
+                const chatId = '8011583377'; // Замените на ваш ID чата
+                
+                const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                
+                return fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.ok) {
+                        throw new Error(data.description || 'Failed to send Telegram notification');
+                    }
+                    return data;
+                });
+            }
+            
+            // Function to open WhatsApp with pre-filled message
+            function openWhatsApp(text) {
+                // Replace with your WhatsApp number (international format without +)
+                const whatsappNumber = '79935883040'; // Например: 79001234567
+                
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(text)}`;
+                
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
+            }
         });
     </script>
 </body>
