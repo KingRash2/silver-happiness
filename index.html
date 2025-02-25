@@ -325,60 +325,6 @@
             observer.observe(section);
         });
 
-        // Yandex Maps API
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=84b2d3a7-29cc-48c0-a0c0-04961f6dd64f
-        &lang=ru_RU"></script>
-        <script>
-            ymaps.ready(initMap);
-            
-            function initMap() {
-                // Create map centered on Moscow
-                var myMap = new ymaps.Map("yandex-map", {
-                    center: [55.755864, 37.617698], // Moscow coordinates
-                    zoom: 9
-                });
-                
-                // Add MKAD circle (Green Zone) - approximate radius of 17km
-                var mkadCircle = new ymaps.Circle([
-                    [55.755864, 37.617698], // Center (Moscow)
-                    17000 // Radius in meters
-                ], {
-                    hintContent: "МКАД (Зеленая зона)"
-                }, {
-                    fillColor: "#4CAF5033", // Green with transparency
-                    strokeColor: "#4CAF50",
-                    strokeWidth: 2
-                });
-                myMap.geoObjects.add(mkadCircle);
-                
-                // Add CKAD circle (Yellow Zone) - approximate radius of 30km
-                var ckadCircle = new ymaps.Circle([
-                    [55.755864, 37.617698], // Center (Moscow)
-                    30000 // Radius in meters
-                ], {
-                    hintContent: "ЦКАД (Желтая зона)"
-                }, {
-                    fillColor: "#FFEB3B33", // Yellow with transparency
-                    strokeColor: "#FFEB3B",
-                    strokeWidth: 2
-                });
-                myMap.geoObjects.add(ckadCircle);
-                
-                // Add Moscow Oblast circle (Red Zone) - approximate radius of 60km
-                var oblastCircle = new ymaps.Circle([
-                    [55.755864, 37.617698], // Center (Moscow)
-                    60000 // Radius in meters
-                ], {
-                    hintContent: "Московская область (Красная зона)"
-                }, {
-                    fillColor: "#F4433633", // Red with transparency
-                    strokeColor: "#F44336",
-                    strokeWidth: 2
-                });
-                myMap.geoObjects.add(oblastCircle);
-            }
-        </script>
-
         // Form submission to Telegram
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -422,6 +368,57 @@
                     formStatus.style.color = 'red';
                     console.error('Error:', error);
                 });
+        });
+    </script>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=84b2d3a7-29cc-48c0-a0c0-04961f6dd64f&lang=ru_RU" type="text/javascript"></script>
+    <script>
+        // Initialize Yandex Map with zones
+        ymaps.ready(function() {
+            var myMap = new ymaps.Map("yandex-map", {
+                center: [55.755864, 37.617698], // Moscow coordinates
+                zoom: 9,
+                controls: ['zoomControl']
+            });
+            
+            // Add MKAD circle (Green Zone)
+            var mkadCircle = new ymaps.Circle([
+                [55.755864, 37.617698], // Center (Moscow)
+                17000 // Radius in meters
+            ], {
+                hintContent: "МКАД (Зеленая зона)"
+            }, {
+                fillColor: "#4CAF5033", // Green with transparency
+                strokeColor: "#4CAF50",
+                strokeWidth: 2
+            });
+            myMap.geoObjects.add(mkadCircle);
+            
+            // Add CKAD circle (Yellow Zone)
+            var ckadCircle = new ymaps.Circle([
+                [55.755864, 37.617698], // Center (Moscow)
+                30000 // Radius in meters
+            ], {
+                hintContent: "ЦКАД (Желтая зона)"
+            }, {
+                fillColor: "#FFEB3B33", // Yellow with transparency
+                strokeColor: "#FFEB3B",
+                strokeWidth: 2
+            });
+            myMap.geoObjects.add(ckadCircle);
+            
+            // Add Moscow Oblast circle (Red Zone)
+            var oblastCircle = new ymaps.Circle([
+                [55.755864, 37.617698], // Center (Moscow)
+                60000 // Radius in meters
+            ], {
+                hintContent: "Московская область (Красная зона)"
+            }, {
+                fillColor: "#F4433633", // Red with transparency
+                strokeColor: "#F44336",
+                strokeWidth: 2
+            });
+            myMap.geoObjects.add(oblastCircle);
         });
     </script>
 </body>
