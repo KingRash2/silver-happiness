@@ -14,11 +14,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Add this style block to fix the container and navigation issues -->
     <style>
+        /* Ensure body and html take full height */
+        html, body {
+            height: 100%; /* Ensure full height */
+            margin: 0; /* Remove default margin */
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
         /* Fix for container visibility issues */
         .container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1200px; /* Ensure the container does not stretch full width */
+            margin: 0 auto; /* Center the container */
             padding: 0 1.5rem;
             position: relative;
             z-index: 10;
@@ -36,18 +43,12 @@
         
         /* Ensure content isn't hidden under the navigation */
         .hero-content {
-            padding-top: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        /* Make sure text is visible */
-        .hero-text h1, .hero-text p {
-            position: relative;
-            z-index: 20;
-            color: var(--color-white);
+            padding-top: 100px; /* Adjust padding to account for fixed nav */
+            display: flex; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            min-height: calc(100vh - 100px); /* Ensure it takes full height minus nav */
+            background-color: #fff; /* Set background color to avoid white stripe */
         }
         
         /* Ensure mobile menu appears over other content */
