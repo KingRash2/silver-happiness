@@ -929,7 +929,7 @@ nav.scrolled {
 .zone-label {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  gap: 5px;
 }
 
 .zone-color {
@@ -985,7 +985,6 @@ nav.scrolled {
 
 .contact-form button {
     width: 100%;
-    margin-top: 1rem;
 }
 
 /* Footer */
@@ -1198,7 +1197,6 @@ nav.scrolled {
 .nav-links a:hover::after {
     width: 100%;
 }
-
 
 .review-author {
     display: flex;
