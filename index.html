@@ -94,6 +94,8 @@
     </script>
 </head>
 <body>
+    <h1 class="hidden">Трезвый водитель от Дяди Жени Москва и Московская область</h1>
+    <p class="hidden">Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
     <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <header class="hero">
@@ -288,10 +290,7 @@
                 </div>
             </div>
         </section>
-        <div>
-            <h1 class="hidden">Трезвый водитель от Дяди Жени Москва и Московская область</h1>
-            <p class="hidden">Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
-        </div>
+
         <!-- Reviews Section -->
         <section class="reviews">
             <div class="container">
@@ -472,22 +471,28 @@
             
             // Telegram bot token and chat ID
             const telegramBotId = "7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48"; // Replace with your bot token
-            const chatId = "DKZXY"; // Username to send messages to
+            const chatId = "8011583377"; // Replace with your chat ID
             
             const text = `
 Новый заказ трезвого водителя!
 Имя: ${name}
 Телефон: ${phone}
-Откуда: ${from} // Ensure this line is present
-Куда: ${to} // Ensure this line is present
+Откуда: ${from}
+Куда: ${to}
 Сообщение: ${message}
 `;
             
             const url = `https://api.telegram.org/bot${telegramBotId}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=html`;
             
             fetch(url)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
+                    console.log('Response from Telegram:', data); // Log the response
                     if(data.ok) {
                         formStatus.innerHTML = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
                         formStatus.style.color = 'green';
