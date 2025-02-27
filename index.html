@@ -14,18 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Add this style block to fix the container and navigation issues -->
     <style>
-        /* Ensure body and html take full height */
-        html, body {
-            height: 100%; /* Ensure full height */
-            margin: 0; /* Remove default margin */
-            overflow-x: hidden; /* Prevent horizontal overflow */
-        }
-
         /* Fix for container visibility issues */
         .container {
             width: 100%;
-            max-width: 1200px; /* Ensure the container does not stretch full width */
-            margin: 0 auto; /* Center the container */
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 1.5rem;
             position: relative;
             z-index: 10;
@@ -43,12 +36,14 @@
         
         /* Ensure content isn't hidden under the navigation */
         .hero-content {
-            padding-top: 100px; /* Adjust padding to account for fixed nav */
-            display: flex; /* Center content vertically */
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
-            min-height: calc(100vh - 100px); /* Ensure it takes full height minus nav */
-            background-color: #fff; /* Set background color to avoid white stripe */
+            padding-top: 100px;
+        }
+        
+        /* Make sure text is visible */
+        .hero-text h1, .hero-text p {
+            position: relative;
+            z-index: 20;
+            color: var(--color-white);
         }
         
         /* Ensure mobile menu appears over other content */
@@ -107,31 +102,32 @@
 <body>
     <h1 class="hidden">Трезвый водитель от Дяди Жени Москва и Московская область</h1>
     <p class="hidden">Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
-    <div class="nav-content">
-        <div class="logo">
-            <i data-lucide="car"></i>
-            <div>
-                <a href="index.html"><span class="logo-text">ТРЕЗВЫЙ ВОДИТЕЛЬ</span></a>
-                <p class="logo-subtitle">Ваша безопасность - наш приоритет</p>
-            </div>
-        </div>
-        <div class="nav-links">
-            <a href="#services">Услуги</a>
-            <a href="#about">О нас</a>
-            <a href="#prices">Цены</a>
-            <a href="#contact">Контакты</a>
-        </div>
-        <div class="mobile-menu-button">
-            <button id="mobileMenuToggle">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
-    </div>
     <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <header class="hero">
             <nav class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <i data-lucide="car"></i>
+                        <div>
+                            <a href="index.html"><span class="logo-text">ТРЕЗВЫЙ ВОДИТЕЛЬ</span></a>
+                            <p class="logo-subtitle">Ваша безопасность - наш приоритет</p>
+                        </div>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#services">Услуги</a>
+                        <a href="#about">О нас</a>
+                        <a href="#prices">Цены</a>
+                        <a href="#contact">Контакты</a>
+                    </div>
+                    <div class="mobile-menu-button">
+                        <button id="mobileMenuToggle">
+                            <i data-lucide="menu"></i>
+                        </button>
+                    </div>
+                </div>
             </nav>
+
             <div class="hero-content container">
                 <div class="hero-text">
                     <h1>Безопасное возвращение домой <span>в любое время</span></h1>
@@ -415,8 +411,6 @@
                         <form class="contact-form" id="orderForm">
                             <input type="text" name="name" placeholder="Ваше имя" required>
                             <input type="tel" name="phone" placeholder="Телефон" required>
-                            <input type="text" name="from" placeholder="Откуда" required>
-                            <input type="text" name="to" placeholder="Куда" required>
                             <textarea name="message" placeholder="Сообщение" rows="4"></textarea>
                             <button type="submit" class="btn btn-primary">Заказать</button>
                             <div id="formStatus" style="margin-top: 15px; text-align: center; display: none;"></div>
@@ -512,8 +506,6 @@
 Новый заказ трезвого водителя!
 Имя: ${name}
 Телефон: ${phone}
-От куда: ${from}
-Куда: ${to}
 Сообщение: ${message}
 `;
             
