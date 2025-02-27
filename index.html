@@ -411,6 +411,8 @@
                         <form class="contact-form" id="orderForm">
                             <input type="text" name="name" placeholder="Ваше имя" required>
                             <input type="tel" name="phone" placeholder="Телефон" required>
+                            <input type="text" name="from" placeholder="Откуда" required>
+                            <input type="text" name="to" placeholder="Куда" required>
                             <textarea name="message" placeholder="Сообщение" rows="4"></textarea>
                             <button type="submit" class="btn btn-primary">Заказать</button>
                             <div id="formStatus" style="margin-top: 15px; text-align: center; display: none;"></div>
@@ -506,6 +508,8 @@
 Новый заказ трезвого водителя!
 Имя: ${name}
 Телефон: ${phone}
+От куда: ${from}
+Куда: ${to}
 Сообщение: ${message}
 `;
             
