@@ -4,16 +4,73 @@
     <!-- Existing head content remains unchanged -->
     <meta charset="UTF-8">
     <title>Трезвый водитель от Дяди Жени Москва и Московская область</title>
-  <meta name="description" content="Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).">
+    <meta name="description" content="Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Трезвый водитель</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/lucide-icons/dist/umd/lucide-icons.min.js" rel="stylesheet">
     <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=W68pUKhdwsLt6MC28O5p6OVmVxY9CpOEO5hIx8nQ_hFGVcL7vFIE71guHQnkhRK3ARjj1cm0xEH3oQb_u2HsgA" charset="UTF-8"></script><script src="https://unpkg.com/lucide-icons" defer></script>
     <!-- Add Font Awesome for more icon options -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <script type="application/ld+json">
+    <!-- Add this style block to fix the container and navigation issues -->
+    <style>
+        /* Fix for container visibility issues */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Fix navigation to stay at top */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+        }
+        
+        /* Ensure content isn't hidden under the navigation */
+        .hero-content {
+            padding-top: 100px;
+        }
+        
+        /* Make sure text is visible */
+        .hero-text h1, .hero-text p {
+            position: relative;
+            z-index: 20;
+            color: var(--color-white);
+        }
+        
+        /* Ensure mobile menu appears over other content */
+        .nav-links.active {
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            z-index: 99;
+        }
+        
+        /* Remove duplicate body elements in your HTML structure */
+        body > body {
+            display: none;
+        }
+        
+        /* Adjust header height */
+        header {
+            max-height: none;
+            overflow: visible;
+            padding-top: 80px;
+        }
+    </style>
+    <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
@@ -27,12 +84,11 @@
             "postalCode": "141801"
           }
         }
-        </script>
+    </script>
 </head>
 <body>
-    <body>
-        <h1>Трезвый водитель от Дяди Жени Москва и Московская область</h1>
-        <p>Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
+    <h1>Трезвый водитель от Дяди Жени Москва и Московская область</h1>
+    <p>Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
     <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <header class="hero">
