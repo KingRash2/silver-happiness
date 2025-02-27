@@ -70,6 +70,19 @@
             padding-top: 80px;
         }
     </style>
+    <!-- Add this style block to hide the text visually -->
+    <style>
+        .hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -87,8 +100,8 @@
     </script>
 </head>
 <body>
-    <h1>Трезвый водитель от Дяди Жени Москва и Московская область</h1>
-    <p>Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
+    <h1 class="hidden">Трезвый водитель от Дяди Жени Москва и Московская область</h1>
+    <p class="hidden">Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
     <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <header class="hero">
