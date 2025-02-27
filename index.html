@@ -1,45 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Existing head content remains unchanged -->
     <meta charset="UTF-8">
     <title>Трезвый водитель от Дяди Жени Москва и Московская область</title>
     <meta name="description" content="Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/lucide-icons/dist/umd/lucide-icons.min.js" rel="stylesheet">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=W68pUKhdwsLt6MC28O5p6OVmVxY9CpOEO5hIx8nQ_hFGVcL7vFIE71guHQnkhRK3ARjj1cm0xEH3oQb_u2HsgA" charset="UTF-8"></script><script src="https://unpkg.com/lucide-icons" defer></script>
+    <!-- Add Font Awesome for more icon options -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/lucide-icons" defer></script>
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=W68pUKhdwsLt6MC28O5p6OVmVxY9CpOEO5hIx8nQ_hFGVcL7vFIE71guHQnkhRK3ARjj1cm0xEH3oQb_u2HsgA" charset="UTF-8"></script>
+    <!-- Add this style block to fix the container and navigation issues -->
+    <style>
+        /* Fix for container visibility issues */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Fix navigation to stay at top */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+        }
+        
+        /* Ensure content isn't hidden under the navigation */
+        .hero-content {
+            padding-top: 100px;
+        }
+        
+        /* Make sure text is visible */
+        .hero-text h1, .hero-text p {
+            position: relative;
+            z-index: 20;
+            color: var(--color-white);
+        }
+        
+        /* Ensure mobile menu appears over other content */
+        .nav-links.active {
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            z-index: 99;
+        }
+        
+        /* Remove duplicate body elements in your HTML structure */
+        body > body {
+            display: none;
+        }
+        
+        /* Adjust header height */
+        header {
+            max-height: none;
+            overflow: visible;
+            padding-top: 80px;
+        }
+    </style>
+    <!-- Add this style block to hide the text visually -->
+    <style>
+        .hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Трезвый водитель Дмитров",
+          "description": "Услуги трезвого водителя для жителей Дмитрова",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Семенюка, 11",
+            "addressLocality": "Дмитров",
+            "addressRegion": "Московская область",
+            "postalCode": "141801"
+          }
+        }
+    </script>
 </head>
 <body>
-    <nav class="container">
-        <div class="nav-content">
-            <div class="logo">
-                <i data-lucide="car"></i>
-                <div>
-                    <a href="index.html"><span class="logo-text">ТРЕЗВЫЙ ВОДИТЕЛЬ</span></a>
-                    <p class="logo-subtitle">Ваша безопасность - наш приоритет</p>
-                </div>
-            </div>
-            <div class="nav-links">
-                <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
-                <a href="#prices">Цены</a>
-                <a href="#contact">Контакты</a>
-            </div>
-            <div class="mobile-menu-button">
-                <button id="mobileMenuToggle">
-                    <i data-lucide="menu"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
     <h1 class="hidden">Трезвый водитель от Дяди Жени Москва и Московская область</h1>
     <p class="hidden">Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).</p>
     <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <header class="hero">
+            <nav class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <i data-lucide="car"></i>
+                        <div>
+                            <a href="index.html"><span class="logo-text">ТРЕЗВЫЙ ВОДИТЕЛЬ</span></a>
+                            <p class="logo-subtitle">Ваша безопасность - наш приоритет</p>
+                        </div>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#services">Услуги</a>
+                        <a href="#about">О нас</a>
+                        <a href="#prices">Цены</a>
+                        <a href="#contact">Контакты</a>
+                    </div>
+                    <div class="mobile-menu-button">
+                        <button id="mobileMenuToggle">
+                            <i data-lucide="menu"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
             <div class="hero-content container">
                 <div class="hero-text">
                     <h1>Безопасное возвращение домой <span>в любое время</span></h1>
@@ -50,6 +138,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Add mouse scroll animation -->
             <div class="mouse-scroll">
                 <div class="mouse"></div>
             </div>
@@ -175,6 +264,36 @@
                         </ul>
                         <a href="#contact" class="btn btn-primary">Заказать</a>
                     </div>
+                    <div class="price-card">
+                        <h3>Стандарт</h3>
+                        <p class="price">от 1000 ₽</p>
+                        <ul>
+                            <li><i data-lucide="check-circle"></i>В пределах города</li>
+                            <li><i data-lucide="check-circle"></i>Подача 15-20 минут</li>
+                            <li><i data-lucide="check-circle"></i>Опытный водитель</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Заказать</a>
+                    </div>
+                    <div class="price-card">
+                        <h3>Стандарт</h3>
+                        <p class="price">от 1000 ₽</p>
+                        <ul>
+                            <li><i data-lucide="check-circle"></i>В пределах города</li>
+                            <li><i data-lucide="check-circle"></i>Подача 15-20 минут</li>
+                            <li><i data-lucide="check-circle"></i>Опытный водитель</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Заказать</a>
+                    </div>
+                    <div class="price-card">
+                        <h3>Стандарт</h3>
+                        <p class="price">от 1000 ₽</p>
+                        <ul>
+                            <li><i data-lucide="check-circle"></i>В пределах города</li>
+                            <li><i data-lucide="check-circle"></i>Подача 15-20 минут</li>
+                            <li><i data-lucide="check-circle"></i>Опытный водитель</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Заказать</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -266,7 +385,7 @@
                                 <i data-lucide="map-pin"></i>
                                 <div>
                                     <h4>Адрес</h4>
-                                    <p>ул. Семенюка, 11, Дмитров</p>
+                                    <p>ул. Примерная, 123, Москва</p>
                                 </div>
                             </div>
                             <div class="map">
@@ -312,7 +431,7 @@
                             <p>Ваша безопасность - наш приоритет</p>
                         </div>
                     </div>
-                    <p class="copyright">© 2022-2025 Трезвый водитель. Все права защищены.</p>
+                    <p class="copyright">© 2024 Трезвый водитель. Все права защищены.</p>
                 </div>
             </div>
         </footer>
@@ -324,34 +443,74 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                target?.scrollIntoView({ behavior: 'smooth' });
+                target?.scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            nav.classList.toggle('scrolled', window.scrollY > 100);
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Enhanced Intersection Observer for animations with delay
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add delay based on child index for staggered animations
+                    const children = entry.target.children;
+                    Array.from(children).forEach((child, i) => {
+                        setTimeout(() => {
+                            child.classList.add('fade-in');
+                        }, i * 100);
+                    });
+                    
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
         });
 
         // Form submission to Telegram
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const formStatus = document.getElementById('formStatus');
             formStatus.style.display = 'block';
             formStatus.innerHTML = 'Отправка...';
             formStatus.style.color = '#333';
-
+            
             const name = this.elements['name'].value;
             const phone = this.elements['phone'].value;
             const message = this.elements['message'].value;
-
-            const telegramBotId = "YOUR_BOT_TOKEN"; // Replace with your bot token
-            const chatId = "YOUR_CHAT_ID"; // Replace with your chat ID
-
-            const text = `Новый заказ трезвого водителя!\nИмя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`;
+            
+            // Telegram bot token and chat ID
+            const telegramBotId = "7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48"; // Replace with your bot token
+            const chatId = "DKZXY"; // Username to send messages to
+            
+            const text = `
+Новый заказ трезвого водителя!
+Имя: ${name}
+Телефон: ${phone}
+Сообщение: ${message}
+`;
+            
             const url = `https://api.telegram.org/bot${telegramBotId}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=html`;
-
+            
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -369,6 +528,195 @@
                     formStatus.style.color = 'red';
                     console.error('Error:', error);
                 });
+        });
+
+        // Add parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            
+            // Parallax effect for hero section
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPosition = `center ${scrollPos * 0.5}px`;
+            }
+            
+            // Rotate and move elements on scroll for 3D effect
+            document.querySelectorAll('.feature-card, .price-card, .review-card').forEach((card, index) => {
+                const rotateVal = scrollPos / 1000 * (index % 2 === 0 ? 1 : -1);
+                card.style.transform = `perspective(1000px) rotateY(${rotateVal}deg)`;
+            });
+        });
+    </script>
+
+    <!-- Mobile menu functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    
+                    // Change icon based on menu state
+                    const icon = this.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.setAttribute('data-lucide', 'x');
+                    } else {
+                        icon.setAttribute('data-lucide', 'menu');
+                    }
+                    
+                    // Make sure Lucide updates the icon
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=84b2d3a7-29cc-48c0-a0c0-04961f6dd64f&lang=ru_RU" type="text/javascript"></script>
+    <script>
+        ymaps.ready(function() {
+            var myMap = new ymaps.Map("yandex-map", {
+                center: [55.755864, 37.617698], // Moscow coordinates
+                zoom: 9,
+                controls: ['zoomControl']
+            });
+            
+            // Create circles but don't add them to the map yet
+            
+            // Moscow Oblast circle (Red Zone) - will be bottom layer
+            var oblastCircle = new ymaps.Circle([
+                [55.755864, 37.617698], // Center (Moscow)
+                60000 // Radius in meters
+            ], {
+                hintContent: "Московская область (Красная зона)"
+            }, {
+                fillColor: "#F4433633", // Red with transparency
+                strokeColor: "#F44336",
+                strokeWidth: 2
+            });
+            
+            // CKAD circle (Yellow Zone) - will be middle layer
+            var ckadCircle = new ymaps.Circle([
+                [55.755864, 37.617698], // Center (Moscow)
+                30000 // Radius in meters
+            ], {
+                hintContent: "ЦКАД (Желтая зона)"
+            }, {
+                fillColor: "#FFEB3B33", // Yellow with transparency
+                strokeColor: "#FFEB3B",
+                strokeWidth: 2
+            });
+            
+            // MKAD circle (Green Zone) - will be top layer
+            var mkadCircle = new ymaps.Circle([
+                [55.755864, 37.617698], // Center (Moscow)
+                17000 // Radius in meters
+            ], {
+                hintContent: "МКАД (Зеленая зона)"
+            }, {
+                fillColor: "#4CAF5033", // Green with transparency
+                strokeColor: "#4CAF50",
+                strokeWidth: 2
+            });
+            
+            // Add the circles in order - first the bottom layer, then middle, then top
+            myMap.geoObjects.add(oblastCircle); // Bottom (red)
+            myMap.geoObjects.add(ckadCircle);   // Middle (yellow)
+            myMap.geoObjects.add(mkadCircle);   // Top (green)
+        });
+    </script>
+
+    <script>
+        // Form submission handler for Telegram and WhatsApp notifications
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderForm = document.getElementById('orderForm');
+            const formStatus = document.getElementById('formStatus');
+            
+            if (orderForm) {
+                orderForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading status
+                    formStatus.style.display = 'block';
+                    formStatus.innerHTML = 'Отправка запроса...';
+                    formStatus.style.color = 'var(--color-primary)';
+                    
+                    // Get form data
+                    const name = this.elements['name'].value;
+                    const phone = this.elements['phone'].value;
+                    const message = this.elements['message'].value || 'Без сообщения';
+                    
+                    // Prepare notification text
+                    const notificationText = `
+    🚗 НОВАЯ ЗАЯВКА НА ТРЕЗВОГО ВОДИТЕЛЯ 🚗
+
+    👤 Имя: ${name}
+    📱 Телефон: ${phone}
+    💬 Сообщение: ${message}
+
+    ⏰ Дата и время: ${new Date().toLocaleString('ru-RU')}
+                    `;
+                    
+                    // Send to Telegram
+                    sendTelegramNotification(notificationText)
+                        .then(telegramResult => {
+                            console.log('Telegram notification sent', telegramResult);
+                            
+                            // Open WhatsApp with pre-filled message
+                            openWhatsApp(notificationText);
+                            
+                            // Show success message
+                            formStatus.innerHTML = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+                            formStatus.style.color = '#4CAF50';
+                            
+                            // Reset form
+                            orderForm.reset();
+                        })
+                        .catch(error => {
+                            console.error('Error sending notification:', error);
+                            
+                            // Even if Telegram fails, still try WhatsApp
+                            openWhatsApp(notificationText);
+                            
+                            formStatus.innerHTML = 'Заявка отправлена в WhatsApp. Мы свяжемся с вами в ближайшее время.';
+                            formStatus.style.color = '#4CAF50';
+                            
+                            // Reset form
+                            orderForm.reset();
+                        });
+                });
+            }
+            
+            // Function to send Telegram notification
+            const sendTelegramNotification = (text) => {
+                // Replace with your bot token and chat ID
+                const botToken = '7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48'; // Замените на ваш токен
+                const chatId = '8011583377'; // Замените на ваш ID чата
+                
+                const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                
+                return fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' })
+                })
+                .then(response => response.json())
+                .then(data => data.ok ? data : Promise.reject(new Error(data.description || 'Failed to send Telegram notification')));
+            };
+            
+            // Function to open WhatsApp with pre-filled message
+            const openWhatsApp = (text) => {
+                // Replace with your WhatsApp number (international format without +)
+                const whatsappNumber = '79935883040'; // Например: 79001234567
+                
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(text)}`;
+                
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
+            };
         });
     </script>
 </body>
