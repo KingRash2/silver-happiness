@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Existing head content remains unchanged -->
     <meta charset="UTF-8">
     <title>Трезвый водитель от Дяди Жени Москва и Московская область</title>
     <meta name="description" content="Трезвый водитель 24/7 – быстро, безопасно и аккуратно (Дмитров, Дубна, Лобня, Долгопрудный, Клин, Сергиев Посад).">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/lucide-icons/dist/umd/lucide-icons.min.js" rel="stylesheet">
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=W68pUKhdwsLt6MC28O5p6OVmVxY9CpOEO5hIx8nQ_hFGVcL7vFIE71guHQnkhRK3ARjj1cm0xEH3oQb_u2HsgA" charset="UTF-8"></script><script src="https://unpkg.com/lucide-icons" defer></script>
-    <!-- Add Font Awesome for more icon options -->
+    <script src="https://unpkg.com/lucide-icons" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Add this style block to fix the container and navigation issues -->
     <style>
         /* Fix for container visibility issues */
         .container {
@@ -69,9 +65,7 @@
             overflow: visible;
             padding-top: 80px;
         }
-    </style>
-    <!-- Add this style block to hide the text visually -->
-    <style>
+        
         .hidden {
             position: absolute;
             width: 1px;
@@ -138,7 +132,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Add mouse scroll animation -->
             <div class="mouse-scroll">
                 <div class="mouse"></div>
             </div>
@@ -461,32 +454,6 @@
             }
         });
 
-        // Enhanced Intersection Observer for animations with delay
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    // Add delay based on child index for staggered animations
-                    const children = entry.target.children;
-                    Array.from(children).forEach((child, i) => {
-                        setTimeout(() => {
-                            child.classList.add('fade-in');
-                        }, i * 100);
-                    });
-                    
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
         // Form submission to Telegram
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -498,7 +465,9 @@
             
             const name = this.elements['name'].value;
             const phone = this.elements['phone'].value;
-            const message = this.elements['message'].value;
+            const from = this.elements['from'].value; // Ensure this line is present
+            const to = this.elements['to'].value; // Ensure this line is present
+            const message = this.elements['message'].value || 'Без сообщения'; // Default message if empty
             
             // Telegram bot token and chat ID
             const telegramBotId = "7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48"; // Replace with your bot token
@@ -508,8 +477,8 @@
 Новый заказ трезвого водителя!
 Имя: ${name}
 Телефон: ${phone}
-От куда: ${from}
-Куда: ${to}
+Откуда: ${from} // Ensure this line is present
+Куда: ${to} // Ensure this line is present
 Сообщение: ${message}
 `;
             
@@ -534,26 +503,7 @@
                 });
         });
 
-        // Add parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY;
-            
-            // Parallax effect for hero section
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.backgroundPosition = `center ${scrollPos * 0.5}px`;
-            }
-            
-            // Rotate and move elements on scroll for 3D effect
-            document.querySelectorAll('.feature-card, .price-card, .review-card').forEach((card, index) => {
-                const rotateVal = scrollPos / 1000 * (index % 2 === 0 ? 1 : -1);
-                card.style.transform = `perspective(1000px) rotateY(${rotateVal}deg)`;
-            });
-        });
-    </script>
-
-    <!-- Mobile menu functionality -->
-    <script>
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const navLinks = document.querySelector('.nav-links');
@@ -630,99 +580,6 @@
             myMap.geoObjects.add(oblastCircle); // Bottom (red)
             myMap.geoObjects.add(ckadCircle);   // Middle (yellow)
             myMap.geoObjects.add(mkadCircle);   // Top (green)
-        });
-    </script>
-
-    <script>
-        // Form submission handler for Telegram and WhatsApp notifications
-        document.addEventListener('DOMContentLoaded', function() {
-            const orderForm = document.getElementById('orderForm');
-            const formStatus = document.getElementById('formStatus');
-            
-            if (orderForm) {
-                orderForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Show loading status
-                    formStatus.style.display = 'block';
-                    formStatus.innerHTML = 'Отправка запроса...';
-                    formStatus.style.color = 'var(--color-primary)';
-                    
-                    // Get form data
-                    const name = this.elements['name'].value;
-                    const phone = this.elements['phone'].value;
-                    const message = this.elements['message'].value || 'Без сообщения';
-                    
-                    // Prepare notification text
-                    const notificationText = `
-    🚗 НОВАЯ ЗАЯВКА НА ТРЕЗВОГО ВОДИТЕЛЯ 🚗
-
-    👤 Имя: ${name}
-    📱 Телефон: ${phone}
-    🏳️ От куда: ${from}
-    🏁Куда: ${to}
-    💬 Сообщение: ${message}
-
-    ⏰ Дата и время: ${new Date().toLocaleString('ru-RU')}
-                    `;
-                    
-                    // Send to Telegram
-                    sendTelegramNotification(notificationText)
-                        .then(telegramResult => {
-                            console.log('Telegram notification sent', telegramResult);
-                            
-                            // Open WhatsApp with pre-filled message
-                            openWhatsApp(notificationText);
-                            
-                            // Show success message
-                            formStatus.innerHTML = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
-                            formStatus.style.color = '#4CAF50';
-                            
-                            // Reset form
-                            orderForm.reset();
-                        })
-                        .catch(error => {
-                            console.error('Error sending notification:', error);
-                            
-                            // Even if Telegram fails, still try WhatsApp
-                            openWhatsApp(notificationText);
-                            
-                            formStatus.innerHTML = 'Заявка отправлена в WhatsApp. Мы свяжемся с вами в ближайшее время.';
-                            formStatus.style.color = '#4CAF50';
-                            
-                            // Reset form
-                            orderForm.reset();
-                        });
-                });
-            }
-            
-            // Function to send Telegram notification
-            const sendTelegramNotification = (text) => {
-                // Replace with your bot token and chat ID
-                const botToken = '7675570714:AAGxpvkKzF5WncsooKLQkhfglBG7uIdkE48'; // Замените на ваш токен
-                const chatId = '8011583377'; // Замените на ваш ID чата
-                
-                const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-                
-                return fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' })
-                })
-                .then(response => response.json())
-                .then(data => data.ok ? data : Promise.reject(new Error(data.description || 'Failed to send Telegram notification')));
-            };
-            
-            // Function to open WhatsApp with pre-filled message
-            const openWhatsApp = (text) => {
-                // Replace with your WhatsApp number (international format without +)
-                const whatsappNumber = '79935883040'; // Например: 79001234567
-                
-                const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(text)}`;
-                
-                // Open WhatsApp in a new tab
-                window.open(whatsappUrl, '_blank');
-            };
         });
     </script>
 </body>
